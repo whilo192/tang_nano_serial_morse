@@ -1,0 +1,40 @@
+IO_LOC "clk_24" 35;
+
+IO_LOC "led[0]" 18; //R
+IO_LOC "led[1]" 16; //G
+IO_LOC "led[2]" 17; //B
+
+IO_LOC "audio_out" 34;
+IO_PORT "audio_out" IO_TYPE=LVCMOS33;
+
+IO_LOC "rst_n" 15;
+IO_PORT "rst_n" IO_TYPE=LVCMOS33;
+
+IO_LOC "uart_rx" 9;
+IO_PORT "uart_rx" IO_TYPE=LVCMOS33;
+
+IO_LOC "uart_tx" 8;
+IO_PORT "uart_tx" IO_TYPE=LVCMOS33;
+
+IO_LOC "write_index[10]" 42;
+IO_PORT "write_index[10]" IO_TYPE=LVCMOS33;
+IO_LOC "write_index[9]" 41;
+IO_PORT "write_index[9]" IO_TYPE=LVCMOS33;
+IO_LOC "write_index[8]" 40;
+IO_PORT "write_index[8]" IO_TYPE=LVCMOS33;
+IO_LOC "write_index[7]" 39;
+IO_PORT "write_index[7]" IO_TYPE=LVCMOS33;
+IO_LOC "write_index[6]" 38;
+IO_PORT "write_index[6]" IO_TYPE=LVCMOS33;
+IO_LOC "write_index[5]" 32;
+IO_PORT "write_index[5]" IO_TYPE=LVCMOS33;
+IO_LOC "write_index[4]" 31;
+IO_PORT "write_index[4]" IO_TYPE=LVCMOS33;
+IO_LOC "write_index[3]" 30;
+IO_PORT "write_index[3]" IO_TYPE=LVCMOS33;
+IO_LOC "write_index[2]" 29;
+IO_PORT "write_index[2]" IO_TYPE=LVCMOS33;
+IO_LOC "write_index[1]" 28;
+IO_PORT "write_index[1]" IO_TYPE=LVCMOS33;
+IO_LOC "write_index[0]" 27;
+IO_PORT "write_index[0]" IO_TYPE=LVCMOS33;

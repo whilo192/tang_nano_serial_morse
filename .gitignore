@@ -1,0 +1,12 @@
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/*py
+!/*txt
+!/src
+!/impl
+/impl/*
+!/impl/*.json
+!/impl/pnr/*.cfg
+!/*.gprj*
