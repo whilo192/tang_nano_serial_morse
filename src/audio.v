@@ -18,8 +18,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 module audio(clk_24, rst, vol, speaker);
-    //Default frequency of 1KHz
-    parameter FREQ = 1000;
+    //Default frequency of 500Hz
+    parameter FREQ = 500;
     
     //24MHz clock
     input clk_24;

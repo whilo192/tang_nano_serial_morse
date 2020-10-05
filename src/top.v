@@ -27,7 +27,7 @@ module top(clk_24, rst_n, led, audio_out, uart_rx, uart_tx, write_index);
     //The LED output on the Tang Nano
     output [0:2] led;
 
-    //The 1khz audio output port
+    //The 500Hz audio output port
     output audio_out;
     
     //Debug output - write_index
@@ -42,7 +42,7 @@ module top(clk_24, rst_n, led, audio_out, uart_rx, uart_tx, write_index);
     input clk_24;
     
     //The morse value and length decoded from an ascii value
-    wire [4:0] morse_value;
+    wire [6:0] morse_value;
     wire [2:0] morse_len;
 
     //How far through the diven value we are
@@ -77,7 +77,7 @@ module top(clk_24, rst_n, led, audio_out, uart_rx, uart_tx, write_index);
     wire recieved;
     wire [7:0] rx_serial;
 
-    //wire is_rx;
+    wire is_rx;
     wire is_tx;
 
     //Setup for the UART module
@@ -95,7 +95,7 @@ module top(clk_24, rst_n, led, audio_out, uart_rx, uart_tx, write_index);
     // - There are 7 letters between words. I implement this by having a space take one unit
     //   two 3-unit gaps between the letters, and a one unit space makes 7
 
-    localparam CLK_UNITS = 2_400_000; //0.1s per unit
+    localparam CLK_UNITS = 1_000_000; //approx 0.04s per unit
 
     //What position we have data up to
     wire [10:0] write_index;
@@ -107,7 +107,7 @@ module top(clk_24, rst_n, led, audio_out, uart_rx, uart_tx, write_index);
     //Morse code has variable length so we need to work out that as well
     morse m1(clk_24, ~rst_n, ascii, morse_value, morse_len);
 
-    //Speaker driver - outputs a (default of) 1KHz signal when out_val is high
+    //Speaker driver - outputs a (default of) 500Hz signal when out_val is high
     audio a1(clk_24, ~rst_n, out_val, audio_out);
 
     always @(posedge clk_24)
@@ -132,10 +132,10 @@ module top(clk_24, rst_n, led, audio_out, uart_rx, uart_tx, write_index);
             //We use != as opposed to < since the memory is circular. This means we can safely write up to 64 (ish) values at one
             if (repeat_time == 0 && write_index != read_index)
             begin
-                //If we have finished out latter
+                //If we have finished our letter
                 if (morse_index == morse_len)
                 begin
-                    //Reset, and move to the next work
+                    //Reset, and move to the next word
                     morse_index <= 0;
                     read_index <= read_index + 1;
                     repeat_time <= 3; //next letter - so delay of 3
